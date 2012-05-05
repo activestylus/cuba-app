@@ -27,6 +27,9 @@ Dir["./lib/**/*.rb"].each     { |rb| require rb }
 Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
 
+Cuba.use Rack::MemoryLogger,  Logger.new(STDOUT)
+
+
 # we mix in lib/helpers.rb into Cuba.
 Cuba.plugin Helpers
 
@@ -49,3 +52,4 @@ Cuba.define do
     run Guests
   end
 end
+
